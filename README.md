@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Getting Started with Create React App ![CI status](https://github.com/OrencioRodolfo/github-actions-aws-poc/actions/workflows/CI.yml/badge.svg)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
