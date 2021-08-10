@@ -7,7 +7,7 @@ function App(): JSX.Element {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello</p>
+        <p>Hello you</p>
       </header>
     </div>
   );
