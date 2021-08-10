@@ -2,6 +2,14 @@
   "name": "github-actions-aws-poc",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "node scripts/start.js",
+    "build": "node scripts/build.js",
+    "test": "node scripts/test.js",
+    "test:ci": "CI=true node scripts/test.js",
+    "lint": "eslint src/*.tsx",
+    "typecheck": "tsc"
+  },
   "dependencies": {
     "@babel/core": "7.12.3",
     "@pmmmwh/react-refresh-webpack-plugin": "0.4.3",
@@ -73,13 +81,6 @@
     "webpack-manifest-plugin": "2.2.0",
     "workbox-webpack-plugin": "5.1.4"
   },
-  "scripts": {
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js",
-    "lint": "eslint src/*.tsx",
-    "typecheck": "tsc"
-  },
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -117,7 +118,7 @@
       "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
     ],
     "testEnvironment": "jsdom",
-    "testRunner": "/Users/goncalvesr3/workspace/personal/github-actions-aws-poc/node_modules/jest-circus/runner.js",
+    "testRunner": "jest-circus/runner.js",
     "transform": {
       "^.+\\.(js|jsx|mjs|cjs|ts|tsx)$": "<rootDir>/config/jest/babelTransform.js",
       "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
