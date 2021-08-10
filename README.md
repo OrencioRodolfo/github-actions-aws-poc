@@ -1,4 +1,10 @@
-# Getting Started with Create React App ![CI status](https://github.com/OrencioRodolfo/github-actions-aws-poc/actions/workflows/CI.yml/badge.svg)
+# Public access ![CI status](https://github.com/OrencioRodolfo/github-actions-aws-poc/actions/workflows/CI.yml/badge.svg)  ![CD status](https://github.com/OrencioRodolfo/github-actions-aws-poc/actions/workflows/CD.yml/badge.svg)
+
+http://rodolfogoncalves.github-actions-poc.s3-website.eu-west-2.amazonaws.com/ 
+
+
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
