@@ -4,7 +4,7 @@ name: CD
 
 on:
   push:
-    branches: 
+    branches:
       - "master"
 
 jobs:
@@ -14,37 +14,39 @@ jobs:
     environment: production
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 
-    - name: Get yarn cache directory path
-      id: yarn-cache-dir-path
-      run: echo "::set-output name=dir::$(yarn cache dir)"
- 
-    - name: Retrieve/update cache
-      uses: actions/cache@v2
-      id: yarn-cache
-      with:
-        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-        key: ${{ runner.os }}-yarn-e56456456456-${{ hashFiles('./yarn.lock') }}
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
 
-    - name: Use Node.js 14
-      uses: actions/setup-node@v1
-      with:
-        node-version: 14
-    
-    - name: Install node dependencies
-      run: yarn install
-        
-    - name: Build production distribution (static assets)
-      run: yarn build
+      - name: Retrieve/update cache
+        uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-e56456456456-${{ hashFiles('./yarn.lock') }}
 
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-east-2
+      - name: Use Node.js 14
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
 
-    - name: Deploy
-      run: aws s3 cp build s3://rodolfogoncalves.github-actions-poc --recursive --acl public-read
+      - name: Install node dependencies
+        run: yarn install
+
+      - name: Build production distribution (static assets)
+        run: yarn build
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-2
+
+      - name: Deploy
+        uses: aws-actions/aws-codebuild-run-build@v1
+        with:
+          project-name: "github-actions-poc"
