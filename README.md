@@ -1,6 +1,12 @@
-# Public access ![CI status](https://github.com/OrencioRodolfo/github-actions-aws-poc/actions/workflows/CI.yml/badge.svg)  ![CD status](https://github.com/OrencioRodolfo/github-actions-aws-poc/actions/workflows/CD.yml/badge.svg)
+# Public access
 
-http://rodolfogoncalves.github-actions-poc.s3-website.eu-west-2.amazonaws.com/ 
+**Status**
+
+![CI status](https://github.com/OrencioRodolfo/github-actions-aws-poc/actions/workflows/CI.yml/badge.svg)
+
+![CD status](https://github.com/OrencioRodolfo/github-actions-aws-poc/actions/workflows/CD.yml/badge.svg) 
+
+![CodeBuild status](https://codebuild.eu-west-2.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoidnYyVVgvakV0STR4bFpzYlN6WXhaRUtmcHJXU1FVU3VNa0NrRE1XQi9WZjEzeVVMMnFQT2xCeUtsWStKZnVFbzIrNHVwUGEzLzBwcFl6RC9HN2FTUEZ3PSIsIml2UGFyYW1ldGVyU3BlYyI6Ik83RnhKTCtOZ1BEUDQ1M1AiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=main) 
 
 
 
