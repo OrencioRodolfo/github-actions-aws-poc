@@ -1,5 +1,5 @@
 
-bucket_name="github-actions-poc.$(echo $GITHUB_REF | sed -e 's/\//-/g')"
+bucket_name="github-actions-poc.$(echo $GITHUB_HEAD_REF | sed -e 's/\//-/g')"
 
 # create bucket
 aws s3api create-bucket \
