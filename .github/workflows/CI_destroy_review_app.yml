@@ -1,0 +1,23 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI - Destroy
+
+# Controls when the workflow will run
+on:
+  push:
+    if: github.event.pull_request.merged == true
+    branches:
+      - "master"
+  pull_request:
+    types: [closed]
+
+jobs:
+  validate:
+    name: Static validations (linting, test and typecheck)
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node_version: ["12", "14"]
+
+    steps:
+      - run: sh .aws/destroy_review_app.sh
