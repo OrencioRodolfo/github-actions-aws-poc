@@ -12,12 +12,16 @@ on:
     types: [closed]
 
 jobs:
-  validate:
-    name: Static validations (linting, test and typecheck)
+  destroy:
+    name: Destroy review app
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node_version: ["12", "14"]
+        node_version: ["14"]
 
     steps:
-      - run: sh .aws/destroy_review_app.sh
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Destroy
+        run: sh .aws/destroy_review_app.sh
