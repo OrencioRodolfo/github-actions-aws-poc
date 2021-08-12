@@ -4,10 +4,6 @@ name: CI - Destroy
 
 # Controls when the workflow will run
 on:
-  push:
-    if: github.event.pull_request.merged == true
-    branches:
-      - "master"
   pull_request:
     types: [closed]
 
