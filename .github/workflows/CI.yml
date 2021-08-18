@@ -49,18 +49,6 @@ jobs:
       - run: yarn test:ci
       - run: yarn typecheck
 
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: eu-west-2
-
-      - name: Deploy review app
-        run: |
-          yarn build
-          sh .aws/deploy_review_app.sh
-
   deploy:
     name: Deploy review app
     needs: validate
@@ -96,10 +84,3 @@ jobs:
         run: |
           yarn build
           sh .aws/deploy_review_app.sh
-
-  # DestroyReviewApp:
-  #   name: Destroy review app
-  #   runs-on: ubuntu-latest
-
-  #   steps:
-  #       run: sh .aws/destroy_review_app.sh
