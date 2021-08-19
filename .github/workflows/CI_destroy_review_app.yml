@@ -11,9 +11,6 @@ jobs:
   destroy:
     name: Destroy review app
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node_version: ["14"]
 
     steps:
       - name: Checkout

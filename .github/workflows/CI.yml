@@ -37,10 +37,8 @@ jobs:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-e56456456456-${{ hashFiles('./yarn.lock') }}
 
-      - name: Use Node.js 14
-        uses: actions/setup-node@v1
-        with:
-          node-version: 14
+      - name: check Node.js version
+        run: node --version
 
       - name: Install node dependencies
         run: yarn install
@@ -65,9 +63,6 @@ jobs:
     name: Deploy review app
     needs: validate
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node_version: ["14"]
 
     steps:
       - name: Checkout code
@@ -96,10 +91,3 @@ jobs:
         run: |
           yarn build
           sh .aws/deploy_review_app.sh
-
-  # DestroyReviewApp:
-  #   name: Destroy review app
-  #   runs-on: ubuntu-latest
-
-  #   steps:
-  #       run: sh .aws/destroy_review_app.sh
