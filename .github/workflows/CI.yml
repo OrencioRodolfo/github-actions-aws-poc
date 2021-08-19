@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node_version: ["12", "14"]
+        node: ["12", "14"]
 
     steps:
       - name: Checkout code
@@ -36,6 +36,11 @@ jobs:
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-e56456456456-${{ hashFiles('./yarn.lock') }}
+
+      - name: Set node version
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
 
       - name: check Node.js version
         run: node --version
